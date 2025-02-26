@@ -1,0 +1,45 @@
+# Visual Studio
+.vscode/
+*.sln
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.VC.db
+*.VC.opendb
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Auto-generated files
+*.pdb
+*.opendb
+*.exe
+*.dll
+*.log
+
+# Recycle Bin used by Windows
+$RECYCLE.BIN/
+
+# Test Results
+[Tt]est[Rr]esult*/**
+
+# IIS
+[Ii][Nn][Ee][Tt][Pp][Uu][Bb]/
+
+# Visual Studio Code directories
+.vscode/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
