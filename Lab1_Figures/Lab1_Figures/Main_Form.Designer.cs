@@ -67,6 +67,8 @@
             btn_pencolor = new Button();
             btn_backcolor = new Button();
             button1 = new Button();
+            btn_redo = new Button();
+            btn_desirialize = new Button();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)trackBar_pen).BeginInit();
@@ -111,6 +113,7 @@
             btn_save.TabIndex = 4;
             btn_save.Text = "Сохранить";
             btn_save.UseVisualStyleBackColor = true;
+            btn_save.Click += btn_save_Click;
             // 
             // label3
             // 
@@ -130,6 +133,7 @@
             btn_cancel.TabIndex = 7;
             btn_cancel.Text = "Отменить";
             btn_cancel.UseVisualStyleBackColor = true;
+            btn_cancel.Click += btn_cancel_Click;
             // 
             // btn_clear
             // 
@@ -423,9 +427,11 @@
             // 
             trackBar_pen.Dock = DockStyle.Bottom;
             trackBar_pen.Location = new Point(0, 33);
+            trackBar_pen.Minimum = 1;
             trackBar_pen.Name = "trackBar_pen";
             trackBar_pen.Size = new Size(253, 56);
             trackBar_pen.TabIndex = 0;
+            trackBar_pen.Value = 1;
             trackBar_pen.ValueChanged += trackBar_pen_ValueChanged;
             // 
             // trackBar_corners
@@ -490,11 +496,33 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button_backcolor_Click;
             // 
+            // btn_redo
+            // 
+            btn_redo.Location = new Point(581, 513);
+            btn_redo.Name = "btn_redo";
+            btn_redo.Size = new Size(154, 29);
+            btn_redo.TabIndex = 18;
+            btn_redo.Text = "Восстановить";
+            btn_redo.UseVisualStyleBackColor = true;
+            btn_redo.Click += btn_redo_Click;
+            // 
+            // btn_desirialize
+            // 
+            btn_desirialize.Location = new Point(594, 460);
+            btn_desirialize.Name = "btn_desirialize";
+            btn_desirialize.Size = new Size(142, 29);
+            btn_desirialize.TabIndex = 19;
+            btn_desirialize.Text = "Рррр";
+            btn_desirialize.UseVisualStyleBackColor = true;
+            btn_desirialize.Click += btn_desirialize_Click;
+            // 
             // Main_Form
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1023, 603);
+            Controls.Add(btn_desirialize);
+            Controls.Add(btn_redo);
             Controls.Add(button1);
             Controls.Add(btn_backcolor);
             Controls.Add(btn_pencolor);
@@ -566,5 +594,7 @@
         private Button btn_pencolor;
         private Button btn_backcolor;
         private Button button1;
+        private Button btn_redo;
+        private Button btn_desirialize;
     }
 }
