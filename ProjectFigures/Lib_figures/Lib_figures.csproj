@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <BaseOutputPath>C:\University\OOTP\projects_OOTP\ProjectFigures\ProjectFigures\bin\Debug\net8.0-windows\plugins</BaseOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Ellipse_folder\**" />
+    <EmbeddedResource Remove="Ellipse_folder\**" />
+    <None Remove="Ellipse_folder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Base_Figure.cs" />
+    <Compile Remove="Base_Figure_Factory.cs" />
+    <Compile Remove="Figure_Parametrs.cs" />
+    <Compile Remove="Figure_Type_Identifier.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
+  </ItemGroup>
+
+</Project>
