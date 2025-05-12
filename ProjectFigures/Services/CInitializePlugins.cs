@@ -3,7 +3,7 @@ using Core;
 
 namespace Services
 {
-    public class SomeServices
+    public class CInitializePlugins
     {
         private void InitializeFactory(string dllPath, ref List<Base_Figure_Factory> my_figures_factory, ref Dictionary<string, Type> figureTypeMap)
         {

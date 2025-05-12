@@ -8,6 +8,9 @@ using Newtonsoft.Json;
 using System.Reflection;
 using System.Windows.Forms;
 
+// абстр - где наследование 
+// интерфейс - где общие признаки для классов
+
 namespace Lab1_Figures
 {
     public partial class Main_Form : Form
@@ -25,20 +28,11 @@ namespace Lab1_Figures
             my_figures_redo = new List<Base_Figure>();
             figureTypeMap = new Dictionary<string, Type>();
             my_figures_factory = new List<Base_Figure_Factory>();
-            //my_figures_factory.Add(new Lib_figures.Segment_Factory());
-            //my_figures_factory.Add(new Lib_figures.Square_Factory());
-            //my_figures_factory.Add(new Lib_figures.Rectangle_Factory());
-            //my_figures_factory.Add(new Lib_figures.Circle_Factory());
-            //my_figures_factory.Add(new Lib_figures.Ellipse_Factory());
-            //my_figures_factory.Add(new Lib_figures.Polygon_Factory());
-            //my_figures_factory.Add(new Lib_figures.Broken_line_Factory());
-            //my_figures_factory = null;
-            //figureTypeMap = null;
-            SomeServices services = new SomeServices();
+            
+            CInitializePlugins services = new CInitializePlugins();
             services.InitializePlugins(ref my_figures_factory, ref figureTypeMap);
         }
 
-        //Point click_position;
         Graphics graphics;
         Color pencolor = Color.Black;
         Color backcolor;
@@ -46,65 +40,7 @@ namespace Lab1_Figures
         private bool is_mouse_down = false;
         Base_Figure _active_figure = null;
 
-        private List<Point> points = new List<Point>();
-
-        //private void InitializePlugins()
-        //{
-        //    try
-        //    {
-        //        string startupPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        //        string pluginfolderpass = Path.Combine(startupPath, "plugins");
-        //        DirectoryInfo pluginfolderinfo = new DirectoryInfo(pluginfolderpass);
-        //        var plugins = pluginfolderinfo.GetFiles("*.dll");
-        //        foreach (var plugin in plugins)
-        //        {
-        //            InitializeFactory(plugin.FullName);
-        //        }
-        //    }
-        //    catch
-        //    {
-
-        //    }
-
-        //}
-
-        //private void InitializeFactory(string dllPath)
-        //{
-        //    //const string dllPath = "c:\\University\\OOTP\\projects_OOTP\\Lab1_Figures\\Lib_figures\\bin\\Debug\\net8.0\\Lib_figures.dll";
-        //    try
-        //    {
-        //        // Загрузка DLL
-        //        Assembly assembly = Assembly.LoadFrom(dllPath);
-
-        //        // Получение всех типов из DLL
-        //        Type[] types = assembly.GetTypes();
-
-
-        //        foreach (Type type in types) // <> jeneric tipe 
-        //        {
-        //            var attributes = type.GetCustomAttributes();                                     
-
-        //            if (attributes.Any(attr => attr is FigureFactoryAttribute))
-        //            { // берет объект и попытается привести его к указ типу, если не удастся = null
-        //                var instance = Activator.CreateInstance(type) as Base_Figure_Factory;
-        //                if (instance != null)
-        //                {
-        //                    my_figures_factory.Add(instance);
-        //                }
-        //            }
-
-        //            if (attributes.Any(attr => attr is FigureAttribute))
-        //            {
-        //                figureTypeMap.Add(type.Name, type);
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        //
-        //    }
-
-        //}
+        private List<Point> points = new List<Point>();        
 
         protected override void OnLoad(EventArgs e)
         {
@@ -136,22 +72,22 @@ namespace Lab1_Figures
 
         private void btn_cancel_Click(object sender, EventArgs e)
         {
+            UndoRedo servicesforundo = new UndoRedo();
+
             if (my_figures.Any())
             {
-                Base_Figure figure = my_figures.Last();
-                my_figures.Remove(figure);
-                my_figures_redo.Add(figure);
+                servicesforundo.Undo(ref my_figures, ref my_figures_redo);
                 Invalidate();
             }
         }
 
         private void btn_redo_Click(object sender, EventArgs e)
         {
+            UndoRedo servicesforredo = new UndoRedo();
+
             if (my_figures_redo.Any())
             {
-                Base_Figure figure = my_figures_redo.Last();
-                my_figures_redo.Remove(figure);
-                my_figures.Add(figure);
+                servicesforredo.Redo(ref my_figures, ref my_figures_redo);
                 Invalidate();
             }
         }
@@ -160,15 +96,13 @@ namespace Lab1_Figures
         {
             var fileDialog = new SaveFileDialog();
             var result = fileDialog.ShowDialog();
+            string filename = fileDialog.FileName;
+
+            Serialization servicesforser = new Serialization();            
+
             if (result == DialogResult.OK)
             {
-                StreamWriter Writer = new StreamWriter(fileDialog.FileName);
-                foreach (var figure in my_figures)
-                {
-                    string json = JsonConvert.SerializeObject(figure);
-                    Writer.WriteLine(json);
-                }
-                Writer.Close();
+                servicesforser.WriteToFile(filename, my_figures);
             }
 
         }
@@ -182,37 +116,11 @@ namespace Lab1_Figures
         {
             var fileDialog = new OpenFileDialog();
             var result = fileDialog.ShowDialog();
+            string filename = fileDialog.FileName;
+            Serialization servicesforser = new Serialization();
             if (result == DialogResult.OK)
             {
-                my_figures.Clear();
-
-                StreamReader Reader = new StreamReader(fileDialog.FileName);
-                string mystring;
-                do
-                {
-                    mystring = Reader.ReadLine();
-                    if (mystring != null)
-                    {
-                        try
-                        {
-                            var identifier = JsonConvert.DeserializeObject<Figure_Type_Identifier>(mystring);
-                            if (figureTypeMap.TryGetValue(identifier.TypeName, out var figureType))
-                            {
-                                var figure = JsonConvert.DeserializeObject(mystring, figureType) as Base_Figure;
-                                if (figure != null)
-                                {
-                                    my_figures.Add(figure);
-                                }
-                            }
-                        }
-                        catch
-                        {
-                            // ignore
-                        }
-                    }
-                } while (mystring != null);
-
-                Reader.Close();
+                servicesforser.Desirialize(filename, ref my_figures, ref figureTypeMap);
                 Invalidate();
             }
 
