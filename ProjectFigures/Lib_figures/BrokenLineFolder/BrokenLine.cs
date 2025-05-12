@@ -1,13 +1,16 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using Core;
 
 namespace Lib_figures
 {
     [Figure]
-    public class BrokenLine : Base_Figure
+    public class BrokenLine : Base_Figure, IArbitrary
     {
+        private List<Point> points = new List<Point>();
         public BrokenLine(Figure_Parametrs parametrs) : base(parametrs)
         {
+            points.Add(new Point(parametrs.X, parametrs.Y));
         }
 
         public override string Name
@@ -19,18 +22,22 @@ namespace Lib_figures
         }
         public override void Draw(Graphics graphics)
         {
-            base.Draw(graphics);
+            base.Draw(graphics);            
 
-            Point[] points = new Point[]
+            if (points.Count >= 2)
             {
-                new Point(Figure_Parametrs.X, Figure_Parametrs.Y),
-                new Point(Figure_Parametrs.X + 100, Figure_Parametrs.Y + 50),
-                new Point(Figure_Parametrs.X + 200, Figure_Parametrs.Y + 20),
-                new Point(Figure_Parametrs.X + 300, Figure_Parametrs.Y + 100),
-                new Point(Figure_Parametrs.X + 400, Figure_Parametrs.Y + 30)
-            };
+                graphics.DrawLines(_myPen, points.ToArray());
+            }
+        }
 
-            graphics.DrawLines(_myPen, points);
+        public void Continue(int x, int y)
+        {
+            points.Add(new Point(x, y));
+        }
+
+        public void Stop(int x, int y)
+        {
+
         }
     }
 }

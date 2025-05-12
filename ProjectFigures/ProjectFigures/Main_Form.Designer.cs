@@ -237,6 +237,7 @@
             Text = "Пэинт";
             Paint += Main_Form_Paint;
             MouseClick += Main_Form_MouseClick;
+            MouseDoubleClick += Main_Form_MouseDoubleClick;
             MouseDown += Main_Form_MouseDown;
             MouseMove += Main_Form_MouseMove;
             MouseUp += Main_Form_MouseUp;

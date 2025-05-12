@@ -21,6 +21,12 @@ namespace Lib_figures
         public override void Draw(Graphics graphics)
         {
             base.Draw(graphics);
+
+            using (SolidBrush fillBrush = new SolidBrush(Figure_Parametrs.BackColor))
+            {
+                graphics.FillEllipse(fillBrush, Figure_Parametrs.X, Figure_Parametrs.Y, _radius, _radius);
+            }
+
             graphics.DrawEllipse(_myPen, Figure_Parametrs.X, Figure_Parametrs.Y, _radius, _radius);
         }
 

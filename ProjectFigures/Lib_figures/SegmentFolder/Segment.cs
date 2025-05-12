@@ -1,19 +1,19 @@
-﻿using Core;
-using System;
-using System.Drawing;
+﻿using System.Drawing;
+using System.Reflection;
+using System.Reflection.Metadata;
+using Core;
 
 namespace Lib_figures
 {
     [Figure]
     public class Segment : Base_Figure, IResizeable
     {
-        private List<Point> points = new List<Point>();
+        private int end_x = 0;
+        private int end_y = 0;
         public Segment(Figure_Parametrs parametrs) : base(parametrs)
         {
-            points.Add(new Point(parametrs.X, parametrs.Y));
         }
 
-        // override - переопределяю, задаю новое поведеніе
         public override string Name
         {
             get
@@ -24,15 +24,13 @@ namespace Lib_figures
         public override void Draw(Graphics graphics)
         {
             base.Draw(graphics);
-            if (points.Count >= 2)
-            {
-                graphics.DrawLines(_myPen, points.ToArray());               
-            }
-            
+            graphics.DrawLine(_myPen, Figure_Parametrs.X, Figure_Parametrs.Y, end_x, end_y);
         }
+
         public void Resize(int x, int y)
         {
-            points.Add(new Point(x, y));            
+            end_x = x;
+            end_y = y;
         }
     }
 }

@@ -1,13 +1,17 @@
 ﻿using Core;
+using System;
 using System.Drawing;
 
 namespace Lib_figures
 {
     [Figure]
-    public class Polygon : Base_Figure
+    public class Polygon : Base_Figure, IArbitrary
     {
+        bool finish = false;
+        private List<Point> points = new List<Point>();
         public Polygon(Figure_Parametrs parametrs) : base(parametrs)
         {
+            points.Add(new Point(parametrs.X, parametrs.Y));
         }
 
         public override string Name
@@ -21,17 +25,32 @@ namespace Lib_figures
         {
             base.Draw(graphics);
 
-            Point[] points = new Point[]
+            if (points.Count >= 2)
             {
-                new Point(Figure_Parametrs.X + 50, Figure_Parametrs.Y + 50),
-                new Point(Figure_Parametrs.X + 150, Figure_Parametrs.Y + 50),
-                new Point(Figure_Parametrs.X + 200, Figure_Parametrs.Y + 100),
-                new Point(Figure_Parametrs.X + 150, Figure_Parametrs.Y + 150),
-                new Point(Figure_Parametrs.X + 50, Figure_Parametrs.Y + 150),
-                new Point(Figure_Parametrs.X + 0, Figure_Parametrs.Y + 100)
-            };
+                if (finish)
+                {
+                    using (SolidBrush fillBrush = new SolidBrush(Figure_Parametrs.BackColor))
+                    {
+                        graphics.FillPolygon(fillBrush, points.ToArray());
+                    }
+                    graphics.DrawPolygon(_myPen, points.ToArray());
+                }
+                else
+                {
+                    graphics.DrawLines(_myPen, points.ToArray());
+                }
+            }
+        }
 
-            graphics.DrawPolygon(_myPen, points);
+        public void Continue(int x, int y)
+        {
+            points.Add(new Point(x, y));
+        }
+
+        public void Stop(int x, int y)
+        {
+            points.Add(new Point(x, y));
+            finish = true;
         }
     }
 }

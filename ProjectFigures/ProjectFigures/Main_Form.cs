@@ -127,11 +127,6 @@ namespace Lab1_Figures
             }
         }
 
-        private void Main_Form_MouseClick(object sender, MouseEventArgs e)
-        {
-            //
-        }
-
         private void btn_clear_Click(object sender, EventArgs e)
         {
             graphics.Clear(BackColor);
@@ -272,6 +267,18 @@ namespace Lab1_Figures
             return null;
         }
 
+        private void Main_Form_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (_active_figure != null)
+            {
+                if (_active_figure is IArbitrary arbitrary)
+                {
+                    arbitrary.Continue(e.X, e.Y);
+                    Invalidate();
+                }
+            }
+        }
+
         private void Main_Form_MouseDown(object sender, MouseEventArgs e)
         {
             if (_active_figure == null)
@@ -288,7 +295,10 @@ namespace Lab1_Figures
 
         private void Main_Form_MouseUp(object sender, MouseEventArgs e)
         {
-            _active_figure = null;
+            if (_active_figure is IResizeable resizeable)
+            {
+                _active_figure = null;
+            }
         }
 
 
@@ -302,7 +312,17 @@ namespace Lab1_Figures
                     resizeable.Resize(e.X, e.Y);
                     Invalidate();
                 }
-            }            
+            }
+        }
+
+        private void Main_Form_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (_active_figure is IArbitrary arbitrary)
+            {
+                arbitrary.Stop(e.X, e.Y);
+                _active_figure = null;
+                Invalidate();
+            }                
         }
     }
 }

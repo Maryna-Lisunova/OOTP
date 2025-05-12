@@ -4,17 +4,11 @@ using System.Drawing;
 namespace Lib_figures
 {
     [Figure]
-    public class Rectangle : Base_Figure, IResizeable
+    public class Ellipse : Base_Figure, IResizeable
     {
         private int end_x = 0;
         private int end_y = 0;
-
-        // конструктор для deсериалайзера
-        //public Rectangle() : base()
-        //{
-        //}
-
-        public Rectangle(Figure_Parametrs figure_Parametrs) : base(figure_Parametrs)
+        public Ellipse(Figure_Parametrs parametrs) : base(parametrs)
         {
         }
 
@@ -22,17 +16,18 @@ namespace Lib_figures
         {
             get
             {
-                return "Прямоугольник";
+                return "Эллипс";
             }
         }
         public override void Draw(Graphics graphics)
         {
             base.Draw(graphics);
+
             using (SolidBrush fillBrush = new SolidBrush(Figure_Parametrs.BackColor))
             {
-                graphics.FillRectangle(fillBrush, Figure_Parametrs.X, Figure_Parametrs.Y, end_x, end_y);
+                graphics.FillEllipse(fillBrush, Figure_Parametrs.X, Figure_Parametrs.Y, end_x, end_y);
             }
-            graphics.DrawRectangle(_myPen, Figure_Parametrs.X, Figure_Parametrs.Y, end_x, end_y);
+            graphics.DrawEllipse(_myPen, Figure_Parametrs.X, Figure_Parametrs.Y, end_x, end_y);                        
         }
 
         public void Resize(int x, int y)
