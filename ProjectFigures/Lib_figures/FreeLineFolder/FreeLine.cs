@@ -7,8 +7,9 @@ namespace Lib_figures
     [Figure]
     public class FreeLine : Base_Figure, IResizeable
     {
+        [Newtonsoft.Json.JsonProperty]
         private List<Point> points = new List<Point>();
-        public FreeLine(Figure_Parametrs parametrs) : base(parametrs)
+        public FreeLine([Newtonsoft.Json.JsonProperty("Figure_Parametrs")] Figure_Parametrs parametrs) : base(parametrs)
         {
             points.Add(new Point(parametrs.X, parametrs.Y));
         }

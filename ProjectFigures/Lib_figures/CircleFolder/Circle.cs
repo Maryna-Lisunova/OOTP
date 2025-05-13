@@ -6,6 +6,7 @@ namespace Lib_figures
     [Figure]
     public class Circle : Base_Figure, IResizeable
     {
+        [Newtonsoft.Json.JsonProperty]
         private int _radius = 0;
         public Circle(Figure_Parametrs parametrs) : base(parametrs)
         {

@@ -1,15 +1,21 @@
 ﻿using System;
 using System.Drawing;
+using System.Text.Json.Serialization;
 using Core;
+using Newtonsoft.Json;
 
 namespace Lib_figures
 {
     [Figure]
     public class BrokenLine : Base_Figure, IArbitrary
     {
+        [Newtonsoft.Json.JsonProperty]
         private List<Point> points = new List<Point>();
-        public BrokenLine(Figure_Parametrs parametrs) : base(parametrs)
+
+        [Newtonsoft.Json.JsonConstructor]
+        public BrokenLine([Newtonsoft.Json.JsonProperty("Figure_Parametrs")] Figure_Parametrs parametrs) : base(parametrs)
         {
+            points = new List<Point>();
             points.Add(new Point(parametrs.X, parametrs.Y));
         }
 
@@ -22,7 +28,7 @@ namespace Lib_figures
         }
         public override void Draw(Graphics graphics)
         {
-            base.Draw(graphics);            
+            base.Draw(graphics);
 
             if (points.Count >= 2)
             {

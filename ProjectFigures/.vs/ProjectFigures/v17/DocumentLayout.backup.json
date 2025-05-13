@@ -7,20 +7,20 @@
       "RelativeMoniker": "D:0:0:{8833C726-853F-DB09-7B40-C907410803DB}|ProjectFigures\\MainProg.csproj|solutionrelative:projectfigures\\main_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4F62C8A-6457-4057-8FAD-027360B5D475}|Services\\Services.csproj|c:\\university\\ootp\\projects_ootp\\projectfigures\\services\\undoredo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4F62C8A-6457-4057-8FAD-027360B5D475}|Services\\Services.csproj|solutionrelative:services\\undoredo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E9D9FE19-0798-167B-56FE-C4E6703975CF}|Lib_figures\\Lib_figures.csproj|c:\\university\\ootp\\projects_ootp\\projectfigures\\lib_figures\\freelinefolder\\freeline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9D9FE19-0798-167B-56FE-C4E6703975CF}|Lib_figures\\Lib_figures.csproj|solutionrelative:lib_figures\\freelinefolder\\freeline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9D9FE19-0798-167B-56FE-C4E6703975CF}|Lib_figures\\Lib_figures.csproj|c:\\university\\ootp\\projects_ootp\\projectfigures\\lib_figures\\poligonfolder\\polygon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9D9FE19-0798-167B-56FE-C4E6703975CF}|Lib_figures\\Lib_figures.csproj|solutionrelative:lib_figures\\poligonfolder\\polygon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9D9FE19-0798-167B-56FE-C4E6703975CF}|Lib_figures\\Lib_figures.csproj|c:\\university\\ootp\\projects_ootp\\projectfigures\\lib_figures\\brokenlinefolder\\brokenline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9D9FE19-0798-167B-56FE-C4E6703975CF}|Lib_figures\\Lib_figures.csproj|solutionrelative:lib_figures\\brokenlinefolder\\brokenline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8833C726-853F-DB09-7B40-C907410803DB}|ProjectFigures\\MainProg.csproj|C:\\University\\OOTP\\projects_OOTP\\ProjectFigures\\projectfigures\\main_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{8833C726-853F-DB09-7B40-C907410803DB}|ProjectFigures\\MainProg.csproj|solutionrelative:projectfigures\\main_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4F62C8A-6457-4057-8FAD-027360B5D475}|Services\\Services.csproj|c:\\university\\ootp\\projects_ootp\\projectfigures\\services\\cinitializeplugins.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4F62C8A-6457-4057-8FAD-027360B5D475}|Services\\Services.csproj|solutionrelative:services\\cinitializeplugins.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4F62C8A-6457-4057-8FAD-027360B5D475}|Services\\Services.csproj|c:\\university\\ootp\\projects_ootp\\projectfigures\\services\\serialization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4F62C8A-6457-4057-8FAD-027360B5D475}|Services\\Services.csproj|solutionrelative:services\\serialization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,46 +38,43 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UndoRedo.cs",
-              "DocumentMoniker": "C:\\University\\OOTP\\projects_OOTP\\ProjectFigures\\Services\\UndoRedo.cs",
-              "RelativeDocumentMoniker": "Services\\UndoRedo.cs",
-              "ToolTip": "C:\\University\\OOTP\\projects_OOTP\\ProjectFigures\\Services\\UndoRedo.cs",
-              "RelativeToolTip": "Services\\UndoRedo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABgAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Polygon.cs",
+              "DocumentMoniker": "C:\\University\\OOTP\\projects_OOTP\\ProjectFigures\\Lib_figures\\PoligonFolder\\Polygon.cs",
+              "RelativeDocumentMoniker": "Lib_figures\\PoligonFolder\\Polygon.cs",
+              "ToolTip": "C:\\University\\OOTP\\projects_OOTP\\ProjectFigures\\Lib_figures\\PoligonFolder\\Polygon.cs",
+              "RelativeToolTip": "Lib_figures\\PoligonFolder\\Polygon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T08:28:26.104Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-12T11:14:18.057Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Serialization.cs",
-              "DocumentMoniker": "C:\\University\\OOTP\\projects_OOTP\\ProjectFigures\\Services\\Serialization.cs",
-              "RelativeDocumentMoniker": "Services\\Serialization.cs",
-              "ToolTip": "C:\\University\\OOTP\\projects_OOTP\\ProjectFigures\\Services\\Serialization.cs",
-              "RelativeToolTip": "Services\\Serialization.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAYwDMAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "FreeLine.cs",
+              "DocumentMoniker": "C:\\University\\OOTP\\projects_OOTP\\ProjectFigures\\Lib_figures\\FreeLineFolder\\FreeLine.cs",
+              "RelativeDocumentMoniker": "Lib_figures\\FreeLineFolder\\FreeLine.cs",
+              "ToolTip": "C:\\University\\OOTP\\projects_OOTP\\ProjectFigures\\Lib_figures\\FreeLineFolder\\FreeLine.cs",
+              "RelativeToolTip": "Lib_figures\\FreeLineFolder\\FreeLine.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAB4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T08:16:18.384Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-12T11:14:13.307Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "CInitializePlugins.cs",
-              "DocumentMoniker": "C:\\University\\OOTP\\projects_OOTP\\ProjectFigures\\Services\\CInitializePlugins.cs",
-              "RelativeDocumentMoniker": "Services\\CInitializePlugins.cs",
-              "ToolTip": "C:\\University\\OOTP\\projects_OOTP\\ProjectFigures\\Services\\CInitializePlugins.cs",
-              "RelativeToolTip": "Services\\CInitializePlugins.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAQwC0AAAAmAAAAAAAAAA==",
+              "Title": "BrokenLine.cs",
+              "DocumentMoniker": "C:\\University\\OOTP\\projects_OOTP\\ProjectFigures\\Lib_figures\\BrokenLineFolder\\BrokenLine.cs",
+              "RelativeDocumentMoniker": "Lib_figures\\BrokenLineFolder\\BrokenLine.cs",
+              "ToolTip": "C:\\University\\OOTP\\projects_OOTP\\ProjectFigures\\Lib_figures\\BrokenLineFolder\\BrokenLine.cs",
+              "RelativeToolTip": "Lib_figures\\BrokenLineFolder\\BrokenLine.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAAB6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T08:05:24.294Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-12T10:26:30.183Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Main_Form.cs [Design]",
               "DocumentMoniker": "C:\\University\\OOTP\\projects_OOTP\\ProjectFigures\\ProjectFigures\\Main_Form.cs",
               "RelativeDocumentMoniker": "ProjectFigures\\Main_Form.cs",
@@ -95,7 +92,7 @@
               "RelativeDocumentMoniker": "ProjectFigures\\Main_Form.cs",
               "ToolTip": "C:\\University\\OOTP\\projects_OOTP\\ProjectFigures\\ProjectFigures\\Main_Form.cs",
               "RelativeToolTip": "ProjectFigures\\Main_Form.cs",
-              "ViewState": "AgIAAFEAAAAAAAAAAIAzwGIAAABIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHoAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-24T22:35:14.969Z",
               "EditorCaption": ""

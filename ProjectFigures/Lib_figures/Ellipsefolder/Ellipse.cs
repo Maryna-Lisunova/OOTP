@@ -6,7 +6,9 @@ namespace Lib_figures
     [Figure]
     public class Ellipse : Base_Figure, IResizeable
     {
+        [Newtonsoft.Json.JsonProperty]
         private int end_x = 0;
+        [Newtonsoft.Json.JsonProperty]
         private int end_y = 0;
         public Ellipse(Figure_Parametrs parametrs) : base(parametrs)
         {

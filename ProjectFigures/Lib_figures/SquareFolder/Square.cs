@@ -7,6 +7,7 @@ namespace Lib_figures
     [Figure]
     public class Square : Base_Figure, IResizeable
     {
+        [Newtonsoft.Json.JsonProperty]
         private int _side = 0;
         public override string Name
         {

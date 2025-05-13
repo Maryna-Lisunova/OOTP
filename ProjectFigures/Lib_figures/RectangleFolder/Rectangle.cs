@@ -6,13 +6,10 @@ namespace Lib_figures
     [Figure]
     public class Rectangle : Base_Figure, IResizeable
     {
+        [Newtonsoft.Json.JsonProperty]
         private int end_x = 0;
+        [Newtonsoft.Json.JsonProperty]
         private int end_y = 0;
-
-        // конструктор для deсериалайзера
-        //public Rectangle() : base()
-        //{
-        //}
 
         public Rectangle(Figure_Parametrs figure_Parametrs) : base(figure_Parametrs)
         {
