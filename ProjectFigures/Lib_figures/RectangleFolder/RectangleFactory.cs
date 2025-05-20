@@ -3,7 +3,7 @@
 namespace Lib_figures
 {
     [FigureFactory]
-    public class RectangleFactory : Base_Figure_Factory
+    public class RectangleFactory : BaseFigureFactory
     {
         public override string Name
         {
@@ -12,7 +12,7 @@ namespace Lib_figures
                 return "Прямоугольник";
             }
         }
-        public override Base_Figure Create(Figure_Parametrs figure_Parametrs)
+        public override BaseFigure Create(FigureParametrs figure_Parametrs)
         {
             return new Lib_figures.Rectangle(figure_Parametrs);
         }

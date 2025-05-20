@@ -1,20 +1,20 @@
 ﻿using Core;
 
-namespace Lib_figures
+namespace PlugginTrapezoid
 {
     [FigureFactory]
-    public class BrokenLineFactory : BaseFigureFactory
+    public class TrapezoidFactory : BaseFigureFactory
     {
         public override string Name
         {
             get
             {
-                return "Ломаная линия";
+                return "Трапеция";
             }
         }
         public override BaseFigure Create(FigureParametrs figure_Parametrs)
         {
-            return new Lib_figures.BrokenLine(figure_Parametrs);
+            return new PlugginTrapezoid.Trapezoid(figure_Parametrs);
         }
     }
 }

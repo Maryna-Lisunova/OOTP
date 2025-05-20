@@ -4,7 +4,7 @@ namespace Lib_figures
 {
     [FigureFactory]
 
-    public class CircleFactory : Base_Figure_Factory
+    public class CircleFactory : BaseFigureFactory
     {
         public override string Name
         {
@@ -13,7 +13,7 @@ namespace Lib_figures
                 return "Круг";
             }
         }
-        public override Base_Figure Create(Figure_Parametrs figure_Parametrs)
+        public override BaseFigure Create(FigureParametrs figure_Parametrs)
         {
             return new Lib_figures.Circle(figure_Parametrs);
         }

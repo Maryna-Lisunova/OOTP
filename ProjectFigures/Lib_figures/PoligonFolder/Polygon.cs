@@ -5,13 +5,13 @@ using System.Drawing;
 namespace Lib_figures
 {
     [Figure]
-    public class Polygon : Base_Figure, IArbitrary
+    public class Polygon : BaseFigure, IArbitrary
     {
         [Newtonsoft.Json.JsonProperty]
         bool finish = false;
         [Newtonsoft.Json.JsonProperty]
         private List<Point> points = new List<Point>();
-        public Polygon([Newtonsoft.Json.JsonProperty("Figure_Parametrs")] Figure_Parametrs parametrs) : base(parametrs)
+        public Polygon([Newtonsoft.Json.JsonProperty("Figure_Parametrs")] FigureParametrs parametrs) : base(parametrs)
         {
             points.Add(new Point(parametrs.X, parametrs.Y));
         }

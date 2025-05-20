@@ -7,13 +7,13 @@ using Newtonsoft.Json;
 namespace Lib_figures
 {
     [Figure]
-    public class BrokenLine : Base_Figure, IArbitrary
+    public class BrokenLine : BaseFigure, IArbitrary
     {
         [Newtonsoft.Json.JsonProperty]
         private List<Point> points = new List<Point>();
 
         [Newtonsoft.Json.JsonConstructor]
-        public BrokenLine([Newtonsoft.Json.JsonProperty("Figure_Parametrs")] Figure_Parametrs parametrs) : base(parametrs)
+        public BrokenLine([Newtonsoft.Json.JsonProperty("Figure_Parametrs")] FigureParametrs parametrs) : base(parametrs)
         {
             points = new List<Point>();
             points.Add(new Point(parametrs.X, parametrs.Y));

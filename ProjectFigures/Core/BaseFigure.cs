@@ -3,16 +3,16 @@ using System.Windows;
 
 namespace Core
 {
-    public abstract class Base_Figure
+    public abstract class BaseFigure
     {
         // virtual - поведеніе можно переопределіть
         // contructor
-        public Base_Figure(Figure_Parametrs parametrs)
+        public BaseFigure(FigureParametrs parametrs)
         {
             Figure_Parametrs = parametrs;
         }
 
-        public Base_Figure()
+        public BaseFigure()
         {
 
         }
@@ -28,9 +28,9 @@ namespace Core
         public virtual string Name { get; }
         // pole, в пределах наследников
         protected Pen _myPen;
-        private Figure_Parametrs figure_Parametrs;
+        private FigureParametrs figure_Parametrs;
 
-        public Figure_Parametrs Figure_Parametrs
+        public FigureParametrs Figure_Parametrs
         {
             get => figure_Parametrs;
             set

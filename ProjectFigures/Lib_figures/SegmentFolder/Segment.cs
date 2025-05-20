@@ -6,13 +6,13 @@ using Core;
 namespace Lib_figures
 {
     [Figure]
-    public class Segment : Base_Figure, IResizeable
+    public class Segment : BaseFigure, IResizeable
     {
         [Newtonsoft.Json.JsonProperty]
         private int end_x = 0;
         [Newtonsoft.Json.JsonProperty]
         private int end_y = 0;
-        public Segment(Figure_Parametrs parametrs) : base(parametrs)
+        public Segment(FigureParametrs parametrs) : base(parametrs)
         {
         }
 

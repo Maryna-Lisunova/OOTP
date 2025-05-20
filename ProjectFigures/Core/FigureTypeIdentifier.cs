@@ -1,6 +1,6 @@
 ﻿namespace Core
 {
-    public class Figure_Type_Identifier
+    public class FigureTypeIdentifier
     {
         public string TypeName { get; set; }
 

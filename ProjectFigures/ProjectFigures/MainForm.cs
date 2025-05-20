@@ -7,28 +7,30 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Reflection;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 // абстр - где наследование 
 // интерфейс - где общие признаки для классов
 
 namespace Lab1_Figures
 {
-    public partial class Main_Form : Form
+    public partial class MainForm : Form
     {
-        private List<Base_Figure> my_figures;
-        private List<Base_Figure_Factory> my_figures_factory;
-        private List<Base_Figure> my_figures_redo;
+        private List<BaseFigure> my_figures;
+        private List<BaseFigureFactory> my_figures_factory;
+        private List<BaseFigure> my_figures_redo;
         private Dictionary<string, Type> figureTypeMap;
-        public Main_Form()
+        public MainForm()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
             myPen = new Pen(Color.Black, 1);
 
-            my_figures = new List<Base_Figure>();
-            my_figures_redo = new List<Base_Figure>();
+            my_figures = new List<BaseFigure>();
+            my_figures_redo = new List<BaseFigure>();
             figureTypeMap = new Dictionary<string, Type>();
-            my_figures_factory = new List<Base_Figure_Factory>();
-            
+            my_figures_factory = new List<BaseFigureFactory>();
+
             CInitializePlugins services = new CInitializePlugins();
             services.InitializePlugins(ref my_figures_factory, ref figureTypeMap);
         }
@@ -38,9 +40,9 @@ namespace Lab1_Figures
         Color backcolor;
         Pen myPen = new Pen(Color.Black, 3);
         private bool is_mouse_down = false;
-        Base_Figure _active_figure = null;
+        BaseFigure _active_figure = null;
 
-        private List<Point> points = new List<Point>();        
+        private List<Point> points = new List<Point>();
 
         protected override void OnLoad(EventArgs e)
         {
@@ -98,7 +100,7 @@ namespace Lab1_Figures
             var result = fileDialog.ShowDialog();
             string filename = fileDialog.FileName;
 
-            Serialization servicesforser = new Serialization();            
+            Serialization servicesforser = new Serialization();
 
             if (result == DialogResult.OK)
             {
@@ -146,13 +148,12 @@ namespace Lab1_Figures
             backcolor = colorDialog1.Color;
         }
 
-        private Base_Figure CreateFigure(Point location)
+        private BaseFigure CreateFigure(Point location)
         {
             graphics = CreateGraphics();
             string choosen_figyre = cb_figyres.SelectedItem as string;
-            int corners = trackBar_corners.Value;
 
-            Figure_Parametrs figure_parametrs = new Figure_Parametrs
+            FigureParametrs figure_parametrs = new FigureParametrs
             {
                 X = location.X,
                 Y = location.Y,
@@ -230,7 +231,24 @@ namespace Lab1_Figures
                 arbitrary.Stop(e.X, e.Y);
                 _active_figure = null;
                 Invalidate();
-            }                
+            }
+        }
+
+        private void btn_add_plugin_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+            string filename = openFileDialog1.FileName;
+
+            CInitializePlugins services = new CInitializePlugins();
+            services.InitializePlugins(ref my_figures_factory, ref figureTypeMap, filename);
+
+            cb_figyres.Items.Clear();
+            foreach (var figure in my_figures_factory)
+            {
+                cb_figyres.Items.Add(figure.Name);
+            }
         }
     }
 }

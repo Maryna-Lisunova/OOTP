@@ -1,6 +1,6 @@
 ﻿namespace Lab1_Figures
 {
-    partial class Main_Form
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -30,24 +30,21 @@
         {
             cb_figyres = new ComboBox();
             label1 = new Label();
-            label2 = new Label();
             btn_save = new Button();
-            label3 = new Label();
             btn_cancel = new Button();
             btn_clear = new Button();
             panel1 = new Panel();
             label4 = new Label();
             trackBar_pen = new TrackBar();
-            trackBar_corners = new TrackBar();
             label6 = new Label();
             label7 = new Label();
             btn_pencolor = new Button();
             btn_backcolor = new Button();
             btn_redo = new Button();
             btn_desirialize = new Button();
+            btn_add_plugin = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)trackBar_pen).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)trackBar_corners).BeginInit();
             SuspendLayout();
             // 
             // cb_figyres
@@ -69,20 +66,10 @@
             label1.Text = "Выберите фигуру:";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label2
-            // 
-            label2.Font = new Font("Segoe UI", 9F);
-            label2.Location = new Point(758, 276);
-            label2.Name = "label2";
-            label2.Size = new Size(253, 20);
-            label2.TabIndex = 2;
-            label2.Text = "Количество углов";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // btn_save
             // 
             btn_save.Font = new Font("Segoe UI", 9F);
-            btn_save.Location = new Point(900, 452);
+            btn_save.Location = new Point(758, 452);
             btn_save.Name = "btn_save";
             btn_save.Size = new Size(111, 41);
             btn_save.TabIndex = 4;
@@ -90,19 +77,9 @@
             btn_save.UseVisualStyleBackColor = true;
             btn_save.Click += btn_save_Click;
             // 
-            // label3
-            // 
-            label3.Font = new Font("Segoe UI", 9F);
-            label3.Location = new Point(758, 296);
-            label3.Name = "label3";
-            label3.Size = new Size(253, 20);
-            label3.TabIndex = 6;
-            label3.Text = "(для многоугольника)";
-            label3.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // btn_cancel
             // 
-            btn_cancel.Location = new Point(900, 499);
+            btn_cancel.Location = new Point(758, 499);
             btn_cancel.Name = "btn_cancel";
             btn_cancel.Size = new Size(111, 43);
             btn_cancel.TabIndex = 7;
@@ -149,13 +126,6 @@
             trackBar_pen.TabIndex = 0;
             trackBar_pen.Value = 1;
             // 
-            // trackBar_corners
-            // 
-            trackBar_corners.Location = new Point(758, 319);
-            trackBar_corners.Name = "trackBar_corners";
-            trackBar_corners.Size = new Size(253, 56);
-            trackBar_corners.TabIndex = 11;
-            // 
             // label6
             // 
             label6.AutoSize = true;
@@ -194,7 +164,7 @@
             // 
             // btn_redo
             // 
-            btn_redo.Location = new Point(758, 499);
+            btn_redo.Location = new Point(888, 499);
             btn_redo.Name = "btn_redo";
             btn_redo.Size = new Size(124, 43);
             btn_redo.TabIndex = 18;
@@ -204,7 +174,7 @@
             // 
             // btn_desirialize
             // 
-            btn_desirialize.Location = new Point(758, 452);
+            btn_desirialize.Location = new Point(888, 452);
             btn_desirialize.Name = "btn_desirialize";
             btn_desirialize.Size = new Size(124, 41);
             btn_desirialize.TabIndex = 19;
@@ -212,24 +182,32 @@
             btn_desirialize.UseVisualStyleBackColor = true;
             btn_desirialize.Click += btn_desirialize_Click;
             // 
+            // btn_add_plugin
+            // 
+            btn_add_plugin.Location = new Point(758, 417);
+            btn_add_plugin.Name = "btn_add_plugin";
+            btn_add_plugin.Size = new Size(251, 29);
+            btn_add_plugin.TabIndex = 20;
+            btn_add_plugin.Text = "Загрузить плагин";
+            btn_add_plugin.UseVisualStyleBackColor = true;
+            btn_add_plugin.Click += btn_add_plugin_Click;
+            // 
             // Main_Form
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1023, 603);
+            Controls.Add(btn_add_plugin);
             Controls.Add(btn_desirialize);
             Controls.Add(btn_redo);
             Controls.Add(btn_backcolor);
             Controls.Add(btn_pencolor);
             Controls.Add(label7);
             Controls.Add(label6);
-            Controls.Add(trackBar_corners);
             Controls.Add(panel1);
             Controls.Add(btn_clear);
             Controls.Add(btn_cancel);
-            Controls.Add(label3);
             Controls.Add(btn_save);
-            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(cb_figyres);
             Name = "Main_Form";
@@ -244,7 +222,6 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)trackBar_pen).EndInit();
-            ((System.ComponentModel.ISupportInitialize)trackBar_corners).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -253,20 +230,18 @@
 
         private ComboBox cb_figyres;
         private Label label1;
-        private Label label2;
         private Button btn_save;
-        private Label label3;
         private Button btn_cancel;
         private Button btn_clear;
         private Panel panel1;
         private Label label4;
         private TrackBar trackBar_pen;
-        private TrackBar trackBar_corners;
         private Label label6;
         private Label label7;
         private Button btn_pencolor;
         private Button btn_backcolor;
         private Button btn_redo;
         private Button btn_desirialize;
+        private Button btn_add_plugin;
     }
 }

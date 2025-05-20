@@ -5,11 +5,11 @@ using System.Drawing;
 namespace Lib_figures
 {
     [Figure]
-    public class FreeLine : Base_Figure, IResizeable
+    public class FreeLine : BaseFigure, IResizeable
     {
         [Newtonsoft.Json.JsonProperty]
         private List<Point> points = new List<Point>();
-        public FreeLine([Newtonsoft.Json.JsonProperty("Figure_Parametrs")] Figure_Parametrs parametrs) : base(parametrs)
+        public FreeLine([Newtonsoft.Json.JsonProperty("Figure_Parametrs")] FigureParametrs parametrs) : base(parametrs)
         {
             points.Add(new Point(parametrs.X, parametrs.Y));
         }

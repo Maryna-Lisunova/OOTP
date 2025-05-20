@@ -4,14 +4,14 @@ using System.Drawing;
 namespace Lib_figures
 {
     [Figure]
-    public class Rectangle : Base_Figure, IResizeable
+    public class Rectangle : BaseFigure, IResizeable
     {
         [Newtonsoft.Json.JsonProperty]
         private int end_x = 0;
         [Newtonsoft.Json.JsonProperty]
         private int end_y = 0;
 
-        public Rectangle(Figure_Parametrs figure_Parametrs) : base(figure_Parametrs)
+        public Rectangle(FigureParametrs figure_Parametrs) : base(figure_Parametrs)
         {
         }
 

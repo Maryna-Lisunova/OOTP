@@ -3,7 +3,7 @@
 namespace Lib_figures
 {
     [FigureFactory]
-    public class PolygonFactory : Base_Figure_Factory
+    public class PolygonFactory : BaseFigureFactory
     {
         public override string Name
         {
@@ -12,7 +12,7 @@ namespace Lib_figures
                 return "Многоугольник";
             }
         }
-        public override Base_Figure Create(Figure_Parametrs figure_Parametrs)
+        public override BaseFigure Create(FigureParametrs figure_Parametrs)
         {  
             return new Lib_figures.Polygon(figure_Parametrs);
         }

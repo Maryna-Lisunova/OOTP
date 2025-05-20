@@ -5,7 +5,7 @@ using System.Drawing;
 namespace Lib_figures
 {
     [Figure]
-    public class Square : Base_Figure, IResizeable
+    public class Square : BaseFigure, IResizeable
     {
         [Newtonsoft.Json.JsonProperty]
         private int _side = 0;
@@ -17,7 +17,7 @@ namespace Lib_figures
             }
         }
 
-        public Square(Figure_Parametrs parametrs) : base(parametrs)
+        public Square(FigureParametrs parametrs) : base(parametrs)
         {
         }
 

@@ -5,15 +5,14 @@ namespace Services
 {
     public class CInitializePlugins
     {
-        private void InitializeFactory(string dllPath, ref List<Base_Figure_Factory> my_figures_factory, ref Dictionary<string, Type> figureTypeMap)
-        {
-            //const string dllPath = "c:\\University\\OOTP\\projects_OOTP\\Lab1_Figures\\Lib_figures\\bin\\Debug\\net8.0\\Lib_figures.dll";
+        private void InitializeFactory(string dllPath, ref List<BaseFigureFactory> my_figures_factory, ref Dictionary<string, Type> figureTypeMap)
+        {            
             try
             {
-                // Загрузка DLL
+                // загрузка DLL
                 Assembly assembly = Assembly.LoadFrom(dllPath);
 
-                // Получение всех типов из DLL
+                // получение всех типов из DLL
                 Type[] types = assembly.GetTypes();
 
 
@@ -23,7 +22,7 @@ namespace Services
 
                     if (attributes.Any(attr => attr is FigureFactoryAttribute))
                     { // берет объект и попытается привести его к указ типу, если не удастся = null
-                        var instance = Activator.CreateInstance(type) as Base_Figure_Factory;
+                        var instance = Activator.CreateInstance(type) as BaseFigureFactory;
                         if (instance != null)
                         {
                             my_figures_factory.Add(instance);
@@ -43,26 +42,30 @@ namespace Services
 
         }
 
-        public void InitializePlugins(ref List<Base_Figure_Factory> my_figures_factory, ref Dictionary<string, Type> figureTypeMap)
+        public void InitializePlugins(ref List<BaseFigureFactory> my_figures_factory, ref Dictionary<string, Type> figureTypeMap, string filepath = "")
         {
             try
-            {
-                string startupPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                string pluginfolderpass = Path.Combine(startupPath, "plugins");
-                DirectoryInfo pluginfolderinfo = new DirectoryInfo(pluginfolderpass);
-                var plugins = pluginfolderinfo.GetFiles("*.dll");
-                foreach (var plugin in plugins)
+            { 
+                if (filepath == "")
                 {
-                    InitializeFactory(plugin.FullName, ref my_figures_factory, ref figureTypeMap);
+                    string startupPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                    string pluginfolderpass = Path.Combine(startupPath, "plugins");
+                    DirectoryInfo pluginfolderinfo = new DirectoryInfo(pluginfolderpass);
+                    var plugins = pluginfolderinfo.GetFiles("*.dll");
+                    foreach (var plugin in plugins)
+                    {
+                        InitializeFactory(plugin.FullName, ref my_figures_factory, ref figureTypeMap);
+                    }
                 }
+                else
+                {
+                    InitializeFactory(filepath, ref my_figures_factory, ref figureTypeMap);
+                }                
             }
             catch
             {
-
+                // ignore;
             }
-
         }
-
-
     }
 }
